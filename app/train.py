@@ -40,7 +40,7 @@ def train():
 
         mlflow.sklearn.log_model(
             model,
-            artifact_path="model",
+            name="model",
             input_example=X_test_scaled[:5]
         )
 
