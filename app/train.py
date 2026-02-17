@@ -11,6 +11,9 @@ from sklearn.preprocessing import StandardScaler
 
 
 def train():
+    # Ensure MLflow uses a relative path for tracking URI (important for CI)
+    mlflow.set_tracking_uri("mlruns")
+    
     data = load_breast_cancer()
     X_train, X_test, y_train, y_test = train_test_split(
         data.data, data.target, test_size=0.2, random_state=42
