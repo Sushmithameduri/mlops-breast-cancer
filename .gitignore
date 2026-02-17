@@ -36,3 +36,8 @@ pytest_cache/
 
 # Ignore local files
 local_settings.py
+
+# MLflow tracking and model artifacts
+mlruns/
+models/
+
