@@ -22,7 +22,17 @@ jobs:
           pip install -r requirements.txt
 
       - name: Set MLflow tracking URI
-        run: echo "MLFLOW_TRACKING_URI=mlruns" >> $GITHUB_ENV
+        run: |
+          unset MLFLOW_TRACKING_URI
+          rm -f ~/.mlflow/mlflow.yml || true
+
+      - name: Train model
+        run: python app/train.py
+        env:
+          MLFLOW_TRACKING_URI: mlruns
+
+      - name: Run tests
+        run: pytest
 
       - name: Train model
         run: |
