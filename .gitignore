@@ -1,0 +1,38 @@
+# Python virtual environment
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Model and data files
+models/
+*.h5
+*.pkl
+*.joblib
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Test and coverage outputs
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+pytest_cache/
+
+# Ignore local files
+local_settings.py

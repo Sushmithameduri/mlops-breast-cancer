@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/sushmithameduri/Downloads/mlops-breast-cancer/mlruns/142957056627056061/ed6d5b52260c4f3c8ecd356fae099310/artifacts
+end_time: null
+entry_point_name: ''
+experiment_id: '142957056627056061'
+lifecycle_stage: active
+run_id: ed6d5b52260c4f3c8ecd356fae099310
+run_name: magnificent-mule-485
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1771291813793
+status: 1
+tags: []
+user_id: sushmithameduri
