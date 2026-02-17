@@ -26,10 +26,12 @@ jobs:
           unset MLFLOW_TRACKING_URI
           rm -f ~/.mlflow/mlflow.yml || true
 
+
       - name: Train model
-        run: python app/train.py
-        env:
-          MLFLOW_TRACKING_URI: mlruns
+        run: |
+          rm -rf ~/.mlflow
+          export MLFLOW_TRACKING_URI=mlruns
+          python app/train.py
 
       - name: Run tests
         run: pytest
