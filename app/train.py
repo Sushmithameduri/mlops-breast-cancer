@@ -2,6 +2,7 @@ import mlflow
 import mlflow.sklearn
 import joblib
 import os
+import warnings
 
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
@@ -24,7 +25,7 @@ def train():
     X_train_scaled = scaler.fit_transform(X_train)
     X_test_scaled = scaler.transform(X_test)
 
-    model = LogisticRegression(max_iter=2000)
+    model = LogisticRegression(max_iter=2000, solver="liblinear")
 
     mlflow.set_experiment("Breast Cancer Classification")
 
