@@ -10,6 +10,9 @@ def test_model_accuracy():
     X = scaler.transform(data.data)
     y = data.target
 
+    print("Max value:", X.max())
+    print("Min value:", X.min())
+
     preds = model.predict(X)
     acc = accuracy_score(y, preds)
 
