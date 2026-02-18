@@ -11,8 +11,8 @@ from sklearn.preprocessing import StandardScaler
 
 
 def train():
-    # Ensure MLflow uses a relative path for tracking URI (important for CI)
-    mlflow.set_tracking_uri("file:./mlruns")
+    # Set MLflow tracking URI to a local SQLite database
+    mlflow.set_tracking_uri("sqlite:///mlflow.db")
     
     data = load_breast_cancer()
     X_train, X_test, y_train, y_test = train_test_split(
@@ -41,7 +41,8 @@ def train():
         mlflow.sklearn.log_model(
             model,
             name="model",
-            input_example=X_test_scaled[:5]
+            input_example=X_test_scaled[:5],
+            registered_model_name="BreastCancerModel"
         )
 
         print(f"Model trained with accuracy: {accuracy}")
