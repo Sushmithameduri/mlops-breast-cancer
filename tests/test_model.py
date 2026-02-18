@@ -1,9 +1,16 @@
 import joblib
-import numpy as np
+from sklearn.datasets import load_breast_cancer
+from sklearn.metrics import accuracy_score
 
-
-def test_prediction_shape():
+def test_model_accuracy():
     model = joblib.load("models/model.pkl")
-    sample = np.random.rand(1, 30)
-    prediction = model.predict(sample)
-    assert prediction.shape == (1,)
+    scaler = joblib.load("models/scaler.pkl")
+
+    data = load_breast_cancer()
+    X = scaler.transform(data.data)
+    y = data.target
+
+    preds = model.predict(X)
+    acc = accuracy_score(y, preds)
+
+    assert acc > 0.85
